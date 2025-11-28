@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #comment
-PID_TO_KILL=$(ps -ef | grep "to_infinity.sh" | grep -v "grep" | awk '{print $2}' | head -n 1)
-if [ ! -z "$PID_TO_KILL" ]
+PID_TO_KILL=$(pgrep -f "to_infinity.sh" | head -n 1)
+if [ -n "$PID_TO_KILL" ]
 then
 kill "$PID_TO_KILL"
 fi 
