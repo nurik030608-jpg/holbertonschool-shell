@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#comment 
+for pid_dir in /proc/[0-9]*
+do
+PID=$(basename "$pid_dir")
+COMM_FILE="$pid_dir/comm"
+if [ -f "$COMM_FILE" ]
+then
+COMM=$(cat "$COMM_FILE")
+if [[ "$COMM" == *bash* ]]
+then
+echo "PID: $PID, Process Name: $COMM"
+fi
+fi
+done
