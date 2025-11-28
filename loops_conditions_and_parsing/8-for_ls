@@ -2,5 +2,5 @@
 # This script displays "Best School" ten times and hi 
 for file in *
 do
-echo ${file#*-}
+echo "${file#*-}"
 done
